@@ -72,18 +72,26 @@ sequence1 = list(sequence1)
 sequence2 = list(sequence2)
 sequence1 = n_gram(2, sequence1)
 sequence2 = n_gram(2, sequence2)
-X = set(map(tuple,sequence1))
-Y = set(map(tuple,sequence2))
-print(X)
+x = set(map(tuple,sequence1))
+y = set(map(tuple,sequence2))
+X = set()
+Y = set()
+for i in x:
+    i = ''.join(i)
+    X.add(i)
+for i in y:
+    i = ''.join(i)
+    Y.add(i)
 answer = X | Y
 print("06の答え(和集合): ",answer)
 answer = X & Y
 print("06の答え(積集合): ",answer)
 answer = X - Y
 print("06の答え(差集合): ",answer)
-answer = ("s","e") in X
+check_word = "se"
+answer = check_word in X
 print("06の答え(Xにseが含まれるか): ",answer)
-answer = ("s","e") in Y
+answer = check_word in Y
 print("06の答え(Yにseが含まれるか): ",answer)
 
 # 07. テンプレートによる文生成
@@ -111,6 +119,10 @@ def cipher(character):
             answer += c
     return answer
 
+encode = cipher("the quick brown fox jumps over the lazy dog")
+print("08の暗号化:",encode)
+decode = cipher(encode)
+print("08の復号化:",decode)
 
 # 09. Typoglycemia
 # スペースで区切られた単語列に対して，各単語の先頭と末尾の文字は残し，
