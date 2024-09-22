@@ -25,6 +25,9 @@ character = "Now I need a drink, alcoholic of course, after the heavy lectures i
 character = character.split()
 answer = []
 for word in character:
+    # ,や.を削除
+    word = word.replace(",", "")
+    word = word.replace(".", "")
     answer.append(len(word))
 print("03の答え: ",answer)
 
